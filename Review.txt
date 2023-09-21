@@ -1,0 +1,68 @@
+package p1;
+
+import java.util.Objects;
+
+public class Review {
+	private String customerName;
+	private String reviewDescription;
+	private  int rating;
+	private String foodName;
+	public Review(String customerName, String reviewDescription, int rating, String foodName) {
+		super();
+		this.customerName = customerName;
+		this.reviewDescription = reviewDescription;
+		this.rating = rating;
+		this.foodName = foodName;
+	}
+	public Review() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	public String getReviewDescription() {
+		return reviewDescription;
+	}
+	public void setReviewDescription(String reviewDescription) {
+		this.reviewDescription = reviewDescription;
+	}
+	public int getRating() {
+		return rating;
+	}
+	public void setRating(int rating) {
+		this.rating = rating;
+	}
+	public String getFoodName() {
+		return foodName;
+	}
+	public void setFoodName(String foodName) {
+		this.foodName = foodName;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(customerName, foodName, rating, reviewDescription);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Review other = (Review) obj;
+		return Objects.equals(customerName, other.customerName) && Objects.equals(foodName, other.foodName)
+				&& rating == other.rating && Objects.equals(reviewDescription, other.reviewDescription);
+	}
+	@Override
+	public String toString() {
+		return "Review [customerName=" + customerName + ", reviewDescription=" + reviewDescription + ", rating="
+				+ rating + ", foodName=" + foodName + "]";
+	}
+	
+	
+}

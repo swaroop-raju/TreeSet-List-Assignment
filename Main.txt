@@ -1,0 +1,67 @@
+package p1;
+
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeSet;
+
+public class Main {
+	public static void main(String[] args) {
+		Map<Food,List<Review>> foodMap= new LinkedHashMap<>();
+		TreeSet<Food> allFoods=new TreeSet<>();
+		Food f1= new Food ("CHICKEN",199,"NON-VEG");
+		Food f2= new Food ("MUTTON",300,"NON-VEG");
+		Food f3= new Food ("POTATO",100,"VEG");
+		Food f4= new Food ("PANNER",250,"VEG");
+		Food f5= new Food ("EGG",150,"NON-VEG");
+		Food f6= new Food ("CRAB",500,"NON-VEG");
+		
+		allFoods.add(f1);
+		allFoods.add(f2);
+		allFoods.add(f3);
+		allFoods.add(f4);
+		allFoods.add(f5);
+		allFoods.add(f6);
+		List<Review> revList1 =new ArrayList<>();
+		List<Review> revList2 = new ArrayList<>();
+		List<Review> revList3 = new ArrayList<>();
+		List<Review> revList4 = new ArrayList<>();
+		List<Review> revList5 = new ArrayList<>();		
+		Review r1 = new Review("JACK","AWESOMEEE",5,"CHI-BIRYANI");
+		Review r2 = new Review("SPARROW","KIKKUUU",4,"MUTTON_BIRYANI");
+		Review r3 = new Review("JACK","GOOD",3,"CHI-BIRYANI");
+		Review r4 = new Review("JACK","OK",2,"CHI-BIRYANI");
+		Review r5 = new Review("JACK","BAD",1,"CHI-BIRYANI");
+		revList1.add(r1);
+		revList2.add(r2);
+		revList3.add(r3);
+		revList4.add(r4);
+		revList5.add(r5);
+		foodMap.put(f1, revList1);
+		foodMap.put(f2, revList2);
+		foodMap.put(f3, revList3);
+		foodMap.put(f4, revList4);	
+		foodMap.put(f5, revList5);	
+		for(Map.Entry<Food,List<Review>> entry : foodMap.entrySet())
+		{
+			Food key = entry.getKey();
+			  List<Review> value = entry.getValue();
+
+				 System.out.println("---- "+key.getItemName()+"-------");
+				 System.out.println("Price rs. "+key.getPrice());
+				 System.out.println("Category "+key.getCategory());
+				 System.out.println(" --- Reviews ---");
+				 for (Review review : value) {
+					 for(int i=0;i<review.getRating();i++)				 
+
+						{
+						 System.out.print("*");						 
+						}
+					 System.out.print(review.getReviewDescription()+"\n");
+					 
+				 }
+				 System.out.println("\n\n");
+		}
+	}
+}
